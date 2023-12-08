@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHandler}) {
+function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHandler, errorTextHandler}) {
 
     const [labelPosition, setLabelPosition] = useState(true);
     const [labelText, setLabelText] = useState("I agree to sell my privacy");
     const [description, setDescription] = useState("");
+    const [error, setError] = useState("");
 
     const labelLeftHandler = () => {
         setLabelPosition(true);
@@ -22,6 +23,10 @@ function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHa
         setDescription(e.target.value);
     }
 
+    const errorHandler = (e) => {
+        setError(e.target.value);
+    }
+
     useEffect(() => {
         labelPositionHandler(labelPosition);
     }, [labelPosition]);
@@ -33,6 +38,10 @@ function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHa
     useEffect(() => {
         descriptionTextHandler(description);
     }, [description]);
+
+    useEffect(() => {
+        errorTextHandler(error);
+    }, [error])
 
   return (
     <div>
@@ -63,6 +72,13 @@ function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHa
         <p>Description</p>
         <div>
             <input className='w-52 h-10 p-2 border border-slate-400 rounded' value={description} onChange={descriptionHandler} type="text" />
+        </div>
+      </div>
+
+      <div className='mt-2'>
+        <p>Error</p>
+        <div>
+            <input className='w-52 h-10 p-2 border border-slate-400 rounded' onChange={errorHandler} type="text" />
         </div>
       </div>
     </div>
