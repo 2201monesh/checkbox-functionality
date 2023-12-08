@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { BsCheck } from "react-icons/bs";
 
-function Checkbox({labelPosition, labelText}) {
+function Checkbox({labelPosition, labelText, descriptionText}) {
 
     const [checked, setChecked] = useState(true);
 
@@ -28,6 +28,8 @@ function Checkbox({labelPosition, labelText}) {
          {checked ? <BsCheck className='text-4xl' /> : ""}
          </div>
          </div>}
+
+         <p className='text-sm text-slate-500 mt-1'>{descriptionText}</p>
 
     </div>
   )

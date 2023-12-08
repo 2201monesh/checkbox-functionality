@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function CheckBoxCard({labelPositionHandler, LabelTextHandler}) {
+function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHandler}) {
 
     const [labelPosition, setLabelPosition] = useState(true);
     const [labelText, setLabelText] = useState("I agree to sell my privacy");
@@ -18,6 +18,10 @@ function CheckBoxCard({labelPositionHandler, LabelTextHandler}) {
         setLabelText(e.target.value);
     }
 
+    const descriptionHandler = (e) => {
+        setDescription(e.target.value);
+    }
+
     useEffect(() => {
         labelPositionHandler(labelPosition);
     }, [labelPosition]);
@@ -25,6 +29,10 @@ function CheckBoxCard({labelPositionHandler, LabelTextHandler}) {
     useEffect(() => {
         LabelTextHandler(labelText)
     }, [labelText])
+
+    useEffect(() => {
+        descriptionTextHandler(description);
+    }, [description]);
 
   return (
     <div>
