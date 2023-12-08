@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import CheckBoxColor from './CheckBoxColor';
 
-function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHandler, errorTextHandler}) {
+function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHandler, errorTextHandler, colorCheck}) {
 
     const [labelPosition, setLabelPosition] = useState(true);
     const [labelText, setLabelText] = useState("I agree to sell my privacy");
@@ -80,6 +81,11 @@ function CheckBoxCard({labelPositionHandler, LabelTextHandler, descriptionTextHa
         <div>
             <input className='w-52 h-10 p-2 border border-slate-400 rounded' onChange={errorHandler} type="text" />
         </div>
+      </div>
+
+      <div className='mt-2'>
+        <p>Color</p>
+        <CheckBoxColor colorCheck={colorCheck} />
       </div>
     </div>
   )
