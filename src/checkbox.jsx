@@ -1,6 +1,6 @@
 import React from 'react'
 
-function checkbox() {
+function Checkbox() {
   return (
     <div className='flex justify-center items-center'>
       <div className='border-2 border-slate-300 w-6 h-6 flex items-center justify-center mr-2 font-semibold p-2 rounded'>
@@ -11,4 +11,4 @@ function checkbox() {
   )
 }
 
-export default checkbox
+export default Checkbox
